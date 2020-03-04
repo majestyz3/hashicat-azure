@@ -9,7 +9,7 @@ resource "azurerm_resource_group" "myresourcegroup" {
 
 module "web-app-container" {
   source  = "app.terraform.io/HashiCorp-Sam/web-app-container/azurerm"
-  version = "2.6.0"
+  version = "2.2.1"
   name = "${var.prefix}-app"
   port = "80"
   https_only = "false"
