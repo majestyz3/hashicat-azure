@@ -144,12 +144,13 @@ https://github.com/hashicorp/terraform-guides/tree/master/infrastructure-as-code
 2. Run the plan manually
 3. Show the plan step then the cost estimation
 4. Show how the policy step failed
-5. Fix the VM size variable and re-run using VCS commit and push
-6. Entire app deploys and show the result URL
-7. Change the image size variable and image placeholder variable then re-run using VCS commit and push
-8. Destroy the environment
-9. Remove the sentinel policy
-10. To show private registry modules:
+5. Show Mocking Sentinel Terraform data - Terraform Cloud provides the ability to generate mock data for any run within a workspace. This data can be used with the Sentinel CLI to test policies before deployment.
+6. Fix the VM size variable and re-run using VCS commit and push
+7. Entire app deploys and show the result URL
+8. Change the image size variable and image placeholder variable then re-run using VCS commit and push
+9. Destroy the environment
+10. Remove the sentinel policy
+11. To show private registry modules:
     a. in the main.tf follow the comments explaining what to comment out.
     b. in outputs.tf follow the comments explaining what to comment out. 
-11. 
+12. This deploys a web app on a container into Azure's App Service

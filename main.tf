@@ -9,19 +9,22 @@ resource "azurerm_resource_group" "myresourcegroup" {
 
 // To show private registry modules:
 // First comment out everything below and then run the plan
-// Then uncomment the module below only and the rest is commented out
+// Then uncomment the module and output below only and the rest is commented out
 
-module "web-app-container" {
-  source  = "app.terraform.io/HashiCorp-Sam/web-app-container/azurerm"
-  version = "2.2.1"
-  name = "${var.prefix}-app"
-  port = "80"
-  https_only = "false"
-  resource_group_name = "${azurerm_resource_group.myresourcegroup.name}"
-  container_type = "docker"
-  container_image = "scarolan/palacearcade"
-}
+// module "web-app-container" {
+//   source  = "app.terraform.io/HashiCorp-Sam/web-app-container/azurerm"
+//   version = "2.2.1"
+//   name = "${var.prefix}-app"
+//   port = "80"
+//   https_only = "false"
+//   resource_group_name = "${azurerm_resource_group.myresourcegroup.name}"
+//   container_type = "docker"
+//   container_image = "scarolan/palacearcade"
+// }
 
+// output "container_app_url" {
+//    value = "http://${module.web_app_container.hostname}"
+// }
 
 
 // resource "azurerm_virtual_network" "vnet" {
