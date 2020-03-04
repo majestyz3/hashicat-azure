@@ -137,3 +137,19 @@ az logout
 
 There is also some useful instructions here:
 https://github.com/hashicorp/terraform-guides/tree/master/infrastructure-as-code/azure-vm
+
+## Steps to running the demo:
+
+1. Show Sentinel Policy to fail the run due to wrong VM size
+2. Run the plan manually
+3. Show the plan step then the cost estimation
+4. Show how the policy step failed
+5. Fix the VM size variable and re-run using VCS commit and push
+6. Entire app deploys and show the result URL
+7. Change the image size variable and image placeholder variable then re-run using VCS commit and push
+8. Destroy the environment
+9. Remove the sentinel policy
+10. To show private registry modules:
+    a. in the main.tf follow the comments explaining what to comment out.
+    b. in outputs.tf follow the comments explaining what to comment out. 
+11. 
