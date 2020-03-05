@@ -147,7 +147,7 @@ resource "null_resource" "configure-cat-app" {
   }
 
   provisioner "file" {
-    source      = "../files/"
+    source      = "files/"
     destination = "/home/${var.admin_username}/"
 
     connection {
