@@ -138,10 +138,14 @@ az logout
 There is also some useful instructions here:
 https://github.com/hashicorp/terraform-guides/tree/master/infrastructure-as-code/azure-vm
 
-## Steps to running the demo:
+## Steps to running the demo
 
-1. Show Sentinel Policy to fail the run due to wrong VM size
-2. Run the plan manually
+1. Start with the very top showing organizations, workspaces, modules, and settings.
+2. Go to settings and show the Users, Teams (show Ops team), VCS Providers, Authentication, then Policy Sets
+3. Talk about the tfe_policy and how you can enable this for all workspaces in the organization or specific ones.
+4. Go to the hashicat-azure workspace and talk about variables
+5. Show the VS Code repo file of variables.tf, main.tf, outputs.tf
+6. Queue and run a plan manually
 3. Show the plan step then the cost estimation
 4. Show how the policy step failed
 5. Show Mocking Sentinel Terraform data - Terraform Cloud provides the ability to generate mock data for any run within a workspace. This data can be used with the Sentinel CLI to test policies before deployment.
@@ -149,8 +153,4 @@ https://github.com/hashicorp/terraform-guides/tree/master/infrastructure-as-code
 7. Entire app deploys and show the result URL
 8. Change the image size variable and image placeholder variable then re-run using VCS commit and push
 9. Destroy the environment
-10. Remove the sentinel policy
-11. To show private registry modules:
-    a. in the main.tf follow the comments explaining what to comment out.
-    b. in outputs.tf follow the comments explaining what to comment out. 
-12. This deploys a web app on a container into Azure's App Service
+
