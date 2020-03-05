@@ -149,15 +149,19 @@ https://github.com/hashicorp/terraform-guides/tree/master/infrastructure-as-code
 6. Queue and run a plan manually
 7. Show the plan step then the cost estimation
 8. Show how we have 2 policies: restrict-vm-size and restrict-cost and they both failed.
-9. Pull up the tfe_policy repo in VS Code and explain the two sentinel policies and why they failed.
-10. Show how you can override the policy check becuase it is a soft-mandatory and that you have privilege to do so.
-11. Make sure to leave comments for audit purposes
-12. Apply the plan and leave a comment.
-13. Under Plan Finished: show Mocking Sentinel Terraform data - Terraform Cloud provides the ability to generate mock data for any run within a workspace. This data can be used with the Sentinel CLI to test policies before deployment.
-14. While the environment is getting built, walk through the settings in the workspace section
-17. Entire app deploys and show the result URL
-15. Fix the vm_size variable to Standard_A0, change the placeholder variable to something else and re-run manually
-16. Entire app redeploys and with no policy errors.
-17. Show the result URL
-18. Destroy the environment
+9. Show how you can override the policy check becuase it is a soft-mandatory and that you have privilege to do so.
+10. Make sure to leave comments for audit purposes
+11. Apply the plan and leave a comment.
+12. Under Plan Finished: show Mocking Sentinel Terraform data - Terraform Cloud provides the ability to generate mock data for any run within a workspace. This data can be used with the Sentinel CLI to test policies before deployment.
+13. While the environment is getting built, pull up the tfe_policy repo in VS Code and explain the two sentinel policies and why they failed.
+14. Walk through the settings in the workspace section
+15. Entire app deploys and show the result URL
+16. Fix the vm_size variable to Standard_A0, change the placeholder variable to something else and re-run manually
+17. Entire app redeploys and with no policy errors.
+18. While app is deploying, show the state files under States
+19. Show the result URL
+20. Do NOT Destroy the environment in the demo...there is an error with the policy check that I still need to figure out:
+```shell
+An error occurred: tfe_policy/restrict-vm-size.sentinel:70:11: only a list or map can be indexed, got undefined
+```
 
