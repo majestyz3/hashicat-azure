@@ -146,8 +146,14 @@ https://github.com/hashicorp/terraform-guides/tree/master/infrastructure-as-code
 4. Go to the hashicat-azure workspace and talk about variables
 5. Show the VS Code repo file of variables.tf, main.tf, outputs.tf
 6. Queue and run a plan manually
-3. Show the plan step then the cost estimation
-4. Show how the policy step failed
+7. Show the plan step then the cost estimation
+8. Show how we have 2 policies: restrict-vm-size passed and restrict-cost failed.
+9. Pull up the tfe_policy repo in VS Code and explain the two sentinel policies and why one passed and one failed.
+10. Show how you can override the policy check becuase it is a soft-mandatory and that you have privilege to do so.
+11. Make sure to leave comments for audit purposes
+12. Apply the plan and leave a comment.
+13. While the environment is getting built, walk through the settings in the workspace section
+
 5. Show Mocking Sentinel Terraform data - Terraform Cloud provides the ability to generate mock data for any run within a workspace. This data can be used with the Sentinel CLI to test policies before deployment.
 6. Fix the VM size variable and re-run using VCS commit and push
 7. Entire app deploys and show the result URL
