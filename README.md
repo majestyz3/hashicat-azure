@@ -160,8 +160,6 @@ https://github.com/hashicorp/terraform-guides/tree/master/infrastructure-as-code
 17. Entire app redeploys and with no policy errors.
 18. While app is deploying, show the state files under States
 19. Show the result URL
-20. Do NOT Destroy the environment in the demo...there is an error with the policy check that I still need to figure out:
-```shell
-An error occurred: tfe_policy/restrict-vm-size.sentinel:70:11: only a list or map can be indexed, got undefined
-```
+20. Do NOT Destroy the environment if you will use it for the hashicat-azure-modules demo
+
 

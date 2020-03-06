@@ -146,6 +146,7 @@ resource "null_resource" "configure-cat-app" {
     build_number = timestamp()
   }
 
+
   provisioner "file" {
     source      = "files/"
     destination = "/home/${var.admin_username}/"
