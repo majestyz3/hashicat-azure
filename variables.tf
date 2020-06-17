@@ -64,6 +64,7 @@ variable "height" {
   description = "Image height in pixels."
 }
 
+
 variable "width" {
   default     = "600"
   description = "Image width in pixels."
