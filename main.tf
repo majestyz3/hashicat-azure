@@ -1,3 +1,15 @@
+terraform {
+  backend "remote" {
+    hostname = "app.terraform.io"
+    organization = "HashiCorp-Sam"
+
+    workspaces {
+      name = "hashicat-azure"
+    }
+  }
+}
+
+
 provider "azurerm" {
   version = "=1.44.0"
 }
