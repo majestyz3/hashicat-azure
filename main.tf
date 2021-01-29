@@ -89,6 +89,8 @@ resource "azurerm_network_interface" "catapp-nic" {
   }
 }
 
+
+
 resource "azurerm_public_ip" "catapp-pip" {
   name                = "${var.prefix}-ip"
   location            = var.location
