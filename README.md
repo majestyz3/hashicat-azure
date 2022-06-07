@@ -38,18 +38,18 @@ az account list
 {
     "cloudName": "AzureCloud",
     "homeTenantId": "0e3e2e88-8caf-41ca-b4da-e3b33b6c52ec",
-    "id": "14692f20-9428-451b-8298-102ed4e39c2a",
+    "id": "a02c79ce-c03d-411f-9e5e-4f17b80eb809",
     "isDefault": false,
     "managedByTenants": [
       {
         "tenantId": "2f4a9838-26b7-47ee-be60-ccc1fdec5953"
       }
     ],
-    "name": "Team Solutions Engineers",
+    "name": "Engineering Default",
     "state": "Enabled",
     "tenantId": "0e3e2e88-8caf-41ca-b4da-e3b33b6c52ec",
     "user": {
-      "name": "sam.gabrail@hashicorp.com",
+      "name": "majid.zarkesh@hashicorp.com",
       "type": "user"
     }
  ```
@@ -63,14 +63,13 @@ As shown in the example below, in the create-for-rbac command, please
 use a --name parameter to associate it with your name.
 Note: --name does not accept spaces
 ```shell
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}" --name="samg-Azure-creds"
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}" --name="Zarkesh-Azure-creds"
 ```
 My output:
 ```json
 {
-  "appId": "381b292c-8667-473e-92df-9639b7121ecc",
-  "displayName": "samg-Azure-creds",
-  "name": "http://samg-Azure-creds",
+  "appId": "04392deb-7a67-4788-8d78-de0fc5b3ff1b",
+  "displayName": "Zarkesh-Azure-creds",
   "password": "xxxxxx",
   "tenant": "0e3e2e88-8caf-41ca-b4da-e3b33b6c52ec"
 }
@@ -86,7 +85,7 @@ Finally, it's possible to test these values work as expected by first logging in
 
 ```shell 
 az login --service-principal -u CLIENT_ID -p CLIENT_SECRET --tenant TENANT_ID
-az login --service-principal -u "381b292c-8667-473e-92df-9639b7121ecc" -p "xxxxxx" --tenant "0e3e2e88-8caf-41ca-b4da-e3b33b6c52ec"
+az login --service-principal -u "04392deb-7a67-4788-8d78-de0fc5b3ff1b" -p "xxxxxx" --tenant "0e3e2e88-8caf-41ca-b4da-e3b33b6c52ec"
 ```
 
 ```json
