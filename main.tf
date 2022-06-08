@@ -1,28 +1,26 @@
- terraform {
-   required_providers {
+
+
+terraform {
+  backend
+  required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
       version = "=2.60.0"
     }
   }
-
-   backend "remote" {
-    hostname = "app.terraform.io"
-    organization = "hashicorp-zarkesh"
-
-    workspaces {
-       name = "hashicat-azure"
-     }
-   }
- }
-
+}
 
 provider "azurerm" {
+  features {}
 }
 
 resource "azurerm_resource_group" "myresourcegroup" {
   name     = "${var.prefix}-workshop"
   location = var.location
+
+  tags = {
+    environment = "Production"
+  }
 }
 
 resource "azurerm_virtual_network" "vnet" {
@@ -36,7 +34,7 @@ resource "azurerm_subnet" "subnet" {
   name                 = "${var.prefix}-subnet"
   virtual_network_name = azurerm_virtual_network.vnet.name
   resource_group_name  = azurerm_resource_group.myresourcegroup.name
-  address_prefix       = var.subnet_prefix
+  address_prefixes     = [var.subnet_prefix]
 }
 
 resource "azurerm_network_security_group" "catapp-sg" {
@@ -85,7 +83,6 @@ resource "azurerm_network_interface" "catapp-nic" {
   name                      = "${var.prefix}-catapp-nic"
   location                  = var.location
   resource_group_name       = azurerm_resource_group.myresourcegroup.name
-  network_security_group_id = azurerm_network_security_group.catapp-sg.id
 
   ip_configuration {
     name                          = "${var.prefix}ipconfig"
@@ -95,7 +92,10 @@ resource "azurerm_network_interface" "catapp-nic" {
   }
 }
 
-
+resource "azurerm_network_interface_security_group_association" "catapp-nic-sg-ass" {
+  network_interface_id      = azurerm_network_interface.catapp-nic.id
+  network_security_group_id = azurerm_network_security_group.catapp-sg.id
+}
 
 resource "azurerm_public_ip" "catapp-pip" {
   name                = "${var.prefix}-ip"
@@ -137,8 +137,12 @@ resource "azurerm_virtual_machine" "catapp" {
   os_profile_linux_config {
     disable_password_authentication = false
   }
-}
 
+  tags = {}
+
+  # Added to allow destroy to work correctly.
+  depends_on = [azurerm_network_interface_security_group_association.catapp-nic-sg-ass]
+}
 
 # We're using a little trick here so we can run the provisioner without
 # destroying the VM. Do not do this in production.
@@ -179,15 +183,18 @@ resource "null_resource" "configure-cat-app" {
     }
   }
 
-
   provisioner "remote-exec" {
     inline = [
+      "sudo apt -y update",
+      "sleep 15",
       "sudo apt -y update",
       "sudo apt -y install apache2",
       "sudo systemctl start apache2",
       "sudo chown -R ${var.admin_username}:${var.admin_username} /var/www/html",
       "chmod +x *.sh",
       "PLACEHOLDER=${var.placeholder} WIDTH=${var.width} HEIGHT=${var.height} PREFIX=${var.prefix} ./deploy_app.sh",
+      "sudo apt -y install cowsay",
+      "cowsay Mooooooooooo!",
     ]
 
     connection {
