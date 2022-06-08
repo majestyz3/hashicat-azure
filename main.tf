@@ -1,7 +1,6 @@
 
 
 terraform {
-  backend
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
