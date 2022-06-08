@@ -1,13 +1,13 @@
-// terraform {
-//   backend "remote" {
-//     hostname = "app.terraform.io"
-//     organization = "HashiCorp-Sam"
+ terraform {
+   backend "remote" {
+    hostname = "app.terraform.io"
+    organization = "hashiCorp-zarkesh"
 
-//     workspaces {
-//       name = "hashicat-azure"
-//     }
-//   }
-// }
+    workspaces {
+       name = "hashicat-azure"
+     }
+   }
+ }
 
 
 provider "azurerm" {
