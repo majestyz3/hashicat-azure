@@ -1,4 +1,4 @@
-# hashicat
+# hashicat 
 Hashicat: A terraform built application for use in Hashicorp workshops
 
 Includes "Image World" website.
@@ -121,7 +121,7 @@ You can create a script that will setup your Azure credentials
 when you want to prepare a working environment or demo
 DON'T FORGET TO REPLACE THE VALUES WITH YOUR OWN
 ```shell
-$ echo "Setting environment variables for Terraform”
+$ echo "Setting environment variables for Terraform - ”
 $ export ARM_SUBSCRIPTION_ID=14692f20-9428-451b-8298-102ed4e39c2a
 $ export ARM_CLIENT_ID=<your_appId>
 $ export ARM_CLIENT_SECRET=<your_password>
@@ -133,6 +133,11 @@ Finally, since we're logged into the Azure CLI as a Service Principal we recomme
 ```shell
 az logout
 ```
+
+test to see if you have access via service principle account
+
+az vm list-sizes --location westus
+
 
 There is also some useful instructions here:
 https://github.com/hashicorp/terraform-guides/tree/master/infrastructure-as-code/azure-vm
